@@ -9,7 +9,7 @@ ALLOWED_EXTENSIONS = {'pdf', 'docx'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = 'your_secret_key'  # Replace with a random secret key
+app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')
 
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
